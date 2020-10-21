@@ -12,15 +12,29 @@ export class AppComponent {
   title = 'testbed-analytics';
 
   ngOnInit() {
-    GlobalVariables.riseAnalytics = new RiseAnalytics({
+    
+    // GlobalVariables.riseAnalytics = new RiseAnalytics({
+    //   env: 'test',
+    //   mappingConfig: analyticsMapTest,
+    //   client: 'segment',
+    //   writeKey: 'JfehFIFlHHSrI0rIb3qJ1Aur1xlEXSgw',
+    //   app: 'ATS Careers',
+    //   verbose: false,
+    //   sharedToken: {sub : {}, uta: {}, iat: 0, exp: 0}
+    // });
+
+    // GlobalVariables.riseAnalytics = new RiseAnalytics({
+    //   env: 'test',
+    //   mappingConfig: {},
+    // });
+    // GlobalVariables.riseAnalytics.initialize();  
+
+
+    let riseAnalytics = new RiseAnalytics({
       env: 'test',
-      mappingConfig: analyticsMapTest,
-      client: 'segment',
-      writeKey: 'JfehFIFlHHSrI0rIb3qJ1Aur1xlEXSgw',
-      app: 'ATS Careers',
-      verbose: false,
-      sharedToken: {sub : {}, uta: {}, iat: 0, exp: 0}
+      mappingConfig: {},
     });
-    GlobalVariables.riseAnalytics.initialize();  
+
+
   }
 }
