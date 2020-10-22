@@ -12,29 +12,36 @@ export class AppComponent {
   title = 'testbed-analytics';
 
   ngOnInit() {
-    
-    // GlobalVariables.riseAnalytics = new RiseAnalytics({
-    //   env: 'test',
-    //   mappingConfig: analyticsMapTest,
-    //   client: 'segment',
-    //   writeKey: 'JfehFIFlHHSrI0rIb3qJ1Aur1xlEXSgw',
-    //   app: 'ATS Careers',
-    //   verbose: false,
-    //   sharedToken: {sub : {}, uta: {}, iat: 0, exp: 0}
-    // });
 
-    // GlobalVariables.riseAnalytics = new RiseAnalytics({
-    //   env: 'test',
-    //   mappingConfig: {},
-    // });
-    // GlobalVariables.riseAnalytics.initialize();  
-
-
-    let riseAnalytics = new RiseAnalytics({
+    GlobalVariables.riseAnalytics = new RiseAnalytics({
       env: 'test',
-      mappingConfig: {},
+      mappingConfig: analyticsMapTest,
+      client: 'segment',
+      writeKey: 'nNskT0dbFga6r49a6ANXnx2omOQeQKYr',
+      app: 'Colin Test',
+      verbose: false,
+      sharedToken: { sub: {}, uta: {}, iat: 0, exp: 0 }
     });
-
-
+    GlobalVariables.riseAnalytics.initialize();
   }
+
+  clicked() {
+    console.log('clicked');
+
+    const userA = {
+      id: 1,
+      email: "ann@rise.com",
+      firstName: "Ann",
+      lastName: "Chen",
+      organization_id: 1,
+      commented: true,
+      status: "active"
+    };
+
+    GlobalVariables.riseAnalytics.track({
+      eventName: "login_succeeded",
+      data: { user: userA }
+    }).catch((e) => console.log(e));
+  }
+
 }
